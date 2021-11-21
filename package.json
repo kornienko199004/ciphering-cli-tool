@@ -1,0 +1,28 @@
+{
+  "name": "ciphering-cli-tool",
+  "version": "1.0.0",
+  "description": "CLI tool that encode and decode a text by 3 substitution ciphers",
+  "main": "my_ciphering_cli.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kornienko199004/ciphering-cli-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kornienko199004/ciphering-cli-tool/issues"
+  },
+  "homepage": "https://github.com/kornienko199004/ciphering-cli-tool#readme",
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "jest-mock-process": "^1.4.1",
+    "memfs": "^3.3.0",
+    "mock-argv": "^2.0.6",
+    "mock-stdin": "^1.0.0",
+    "unionfs": "^4.4.0"
+  }
+}
