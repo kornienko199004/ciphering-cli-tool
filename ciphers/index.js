@@ -84,7 +84,7 @@ const rotCipher = (str, mode) => {
     return;
   }
 
-  const dif = parseInt(mode) === 8 ? 8 : -8;
+  const dif = parseInt(mode) === 1 ? 8 : -8;
   let result = '';
 
   for (let i = 0; i < str.length; i += 1) {

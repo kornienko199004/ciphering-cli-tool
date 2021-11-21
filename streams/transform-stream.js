@@ -1,5 +1,6 @@
 const { Transform } = require('stream');
 const getCipher = require('../ciphers');
+const getConfigAst = require('../helpers/configAst');
 
 class CipherTransform extends Transform {
   optionsAst;
@@ -24,30 +25,9 @@ class CipherTransform extends Transform {
     }
   }
 }
-const cipherMap = {
-  c: 'caesar',
-  r: 'rotate',
-};
 
 const getTransformStream = ({ config }) => {
-  let optionsAst = [];
-  if (config) {
-    const options = config.split('-');
-    optionsAst = options.reduce((acc, item) => {
-      if (item.length === 1 && item.toLowerCase() === 'a') {
-        return [ ...acc, { cipher: 'atbash' } ];
-      }
-
-      if (item.length === 2) {
-        const [cipher, mode] = item.toLowerCase().split('');
-        if (cipherMap[cipher] && (parseInt(mode) === 0 || parseInt(mode) === 1)) {
-          return [ ...acc, { cipher: cipherMap[cipher], mode } ];
-        }
-      }
-
-      throw Error('wrong config');
-    }, []);
-  }
+  const optionsAst = getConfigAst(config);
   return new CipherTransform(optionsAst);
 };
 

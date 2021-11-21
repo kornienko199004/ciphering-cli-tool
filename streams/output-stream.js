@@ -7,9 +7,9 @@ const getWriteFileStream = (src) => {
   return stream;
 };
 
-const getOutputStream = ({ output }) => {
-  if (output) {
-    return getWriteFileStream(output);
+const getOutputStream = (config) => {
+  if (config?.output) {
+    return getWriteFileStream(config.output);
   }
   return process.stdout;
 };

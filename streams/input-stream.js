@@ -7,9 +7,9 @@ const getReadFileStream = (src) => {
   return stream;
 };
 
-const getInputStream = ({ input }) => {
-  if (input) {
-    return getReadFileStream(input);
+const getInputStream = (config) => {
+  if (config?.input) {
+    return getReadFileStream(config?.input);
   }
   return process.stdin;
 };
